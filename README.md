@@ -1,10 +1,10 @@
-# Smart Task Manager 📝
+# Smart Task Manager
 
 A modern and responsive task management web application built with React.js. This project helps users efficiently manage their daily tasks with a clean and intuitive interface.
 
 ---
 
-## 🚀 Features
+## Features
 
 - Add, edit, and delete tasks
 - Mark tasks as completed or active
@@ -15,7 +15,7 @@ A modern and responsive task management web application built with React.js. Thi
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - React.js
 - TypeScript (TS)
@@ -24,7 +24,7 @@ A modern and responsive task management web application built with React.js. Thi
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 PROJECT 1: Smart Task Manager (React)
 
 src/
