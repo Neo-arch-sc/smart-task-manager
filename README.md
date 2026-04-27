@@ -25,15 +25,21 @@ A modern and responsive task management web application built with React.js. Thi
 ---
 
 ## Project Structure
-PROJECT 1: Smart Task Manager (React)
-
-src/
-├── App.tsx              ← state + handlers
-├── types.ts             ← shared types
-├── components/
-│   ├── TaskForm.tsx
-│   ├── TaskList.tsx
-│   ├── TaskItem.tsx
-│   └── FilterBar.tsx
-└── utils/
-    └── storage.ts       ← localStorage helpers
+ Smart Task Manager (React)
+ 
+artifacts/task-manager/
+├── index.html
+├── package.json          ← TypeScript & @types/* removed
+├── vite.config.js        ← was vite.config.ts
+├── public/
+└── src/
+    ├── main.jsx          ← was main.tsx
+    ├── App.jsx           ← was App.tsx
+    ├── index.css
+    ├── components/
+    │   ├── TaskForm.jsx
+    │   ├── TaskList.jsx
+    │   ├── TaskItem.jsx
+    │   └── FilterBar.jsx
+    └── utils/
+        └── storage.js
