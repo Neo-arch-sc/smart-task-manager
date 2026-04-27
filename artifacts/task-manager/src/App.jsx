@@ -3,24 +3,19 @@ import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
 import FilterBar from "./components/FilterBar";
 import { loadTasks, saveTasks } from "./utils/storage";
-import type { Filter, Priority, Task } from "./types";
 
 function App() {
   // Load saved tasks on first render
-  const [tasks, setTasks] = useState<Task[]>(() => loadTasks());
-  const [filter, setFilter] = useState<Filter>("all");
+  const [tasks, setTasks] = useState(() => loadTasks());
+  const [filter, setFilter] = useState("all");
 
   // Save tasks to localStorage whenever they change
   useEffect(() => {
     saveTasks(tasks);
   }, [tasks]);
 
-  function addTask(newTask: {
-    title: string;
-    description: string;
-    priority: Priority;
-  }) {
-    const task: Task = {
+  function addTask(newTask) {
+    const task = {
       id: Date.now().toString() + Math.random().toString(36).slice(2, 7),
       title: newTask.title,
       description: newTask.description,
@@ -31,20 +26,17 @@ function App() {
     setTasks((prev) => [task, ...prev]);
   }
 
-  function toggleTask(id: string) {
+  function toggleTask(id) {
     setTasks((prev) =>
       prev.map((t) => (t.id === id ? { ...t, completed: !t.completed } : t)),
     );
   }
 
-  function deleteTask(id: string) {
+  function deleteTask(id) {
     setTasks((prev) => prev.filter((t) => t.id !== id));
   }
 
-  function editTask(
-    id: string,
-    updates: { title: string; description: string; priority: Priority },
-  ) {
+  function editTask(id, updates) {
     setTasks((prev) =>
       prev.map((t) => (t.id === id ? { ...t, ...updates } : t)),
     );
@@ -107,7 +99,7 @@ function App() {
         </main>
 
         <footer className="app__footer">
-          <p>Built with React + TypeScript</p>
+          <p>Built with React</p>
         </footer>
       </div>
     </div>

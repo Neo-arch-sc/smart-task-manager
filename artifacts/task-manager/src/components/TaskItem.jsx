@@ -1,21 +1,10 @@
 import { useState } from "react";
-import type { Priority, Task } from "../types";
 
-interface TaskItemProps {
-  task: Task;
-  onToggle: (id: string) => void;
-  onDelete: (id: string) => void;
-  onEdit: (
-    id: string,
-    updates: { title: string; description: string; priority: Priority },
-  ) => void;
-}
-
-function TaskItem({ task, onToggle, onDelete, onEdit }: TaskItemProps) {
+function TaskItem({ task, onToggle, onDelete, onEdit }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editTitle, setEditTitle] = useState(task.title);
   const [editDescription, setEditDescription] = useState(task.description);
-  const [editPriority, setEditPriority] = useState<Priority>(task.priority);
+  const [editPriority, setEditPriority] = useState(task.priority);
 
   function handleSave() {
     const trimmedTitle = editTitle.trim();
@@ -54,7 +43,7 @@ function TaskItem({ task, onToggle, onDelete, onEdit }: TaskItemProps) {
           <select
             className="task-item__select"
             value={editPriority}
-            onChange={(e) => setEditPriority(e.target.value as Priority)}
+            onChange={(e) => setEditPriority(e.target.value)}
           >
             <option value="low">Low</option>
             <option value="medium">Medium</option>

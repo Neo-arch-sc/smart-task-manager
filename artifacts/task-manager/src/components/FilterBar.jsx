@@ -1,22 +1,10 @@
-import type { Filter } from "../types";
-
-interface FilterBarProps {
-  currentFilter: Filter;
-  onChange: (filter: Filter) => void;
-  counts: {
-    all: number;
-    active: number;
-    completed: number;
-  };
-}
-
-const FILTERS: { value: Filter; label: string }[] = [
+const FILTERS = [
   { value: "all", label: "All" },
   { value: "active", label: "Active" },
   { value: "completed", label: "Completed" },
 ];
 
-function FilterBar({ currentFilter, onChange, counts }: FilterBarProps) {
+function FilterBar({ currentFilter, onChange, counts }) {
   return (
     <div className="filter-bar">
       {FILTERS.map((filter) => (

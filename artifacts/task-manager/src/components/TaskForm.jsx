@@ -1,16 +1,11 @@
 import { useState } from "react";
-import type { Priority, Task } from "../types";
 
-interface TaskFormProps {
-  onAdd: (task: Omit<Task, "id" | "completed" | "createdAt">) => void;
-}
-
-function TaskForm({ onAdd }: TaskFormProps) {
+function TaskForm({ onAdd }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const [priority, setPriority] = useState<Priority>("medium");
+  const [priority, setPriority] = useState("medium");
 
-  function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e) {
     e.preventDefault();
     const trimmedTitle = title.trim();
     if (!trimmedTitle) return;
@@ -51,7 +46,7 @@ function TaskForm({ onAdd }: TaskFormProps) {
           <select
             className="task-form__select"
             value={priority}
-            onChange={(e) => setPriority(e.target.value as Priority)}
+            onChange={(e) => setPriority(e.target.value)}
           >
             <option value="low">Low</option>
             <option value="medium">Medium</option>
